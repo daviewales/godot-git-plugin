@@ -55,6 +55,7 @@ elif env['platform'] in ('x11', 'linux'):
     env['target_path'] += 'x11/'
     cpp_library += '.linux'
     libgit2_lib_path += 'x11/'
+    env.Append(LIBS=['ssl', 'crypto', 'ssh2'])
     if env['target'] in ('debug', 'd'):
         env.Append(CCFLAGS = ['-fPIC', '-g3','-Og', '-std=c++17'])
     else:
@@ -69,7 +70,7 @@ elif env['platform'] == "windows":
     env.Append(ENV = os.environ)
 
     env.Append(CCFLAGS = ['-DWIN32', '-D_WIN32', '-D_WINDOWS', '-W3', '-GR', '-D_CRT_SECURE_NO_WARNINGS'])
-    env.Append(LIBS=['Advapi32'])
+    env.Append(LIBS=['Advapi32', 'Ole32', 'Rpcrt4', 'Winhttp', 'Crypt32'])
     if env['target'] in ('debug', 'd'):
         env.Append(CCFLAGS = ['-EHsc', '-D_DEBUG', '-MDd'])
     else:
@@ -87,7 +88,7 @@ cpp_library += '.' + str(bits)
 # make sure our binding library properly includes
 env.Append(CPPPATH=['.', godot_headers_path, cpp_bindings_path + 'include/', cpp_bindings_path + 'include/core/', cpp_bindings_path + 'include/gen/'])
 env.Append(LIBPATH=[cpp_bindings_path + 'bin/', libgit2_lib_path])
-env.Append(LIBS=[cpp_library, 'ssl', 'crypto', 'ssh2', 'git2'])
+env.Append(LIBS=[cpp_library, 'git2'])
 
 # tweak this if you want to use different folders, or more folders, to store your source code in.
 env.Append(CPPPATH=['godot-git-plugin/src/', libgit2_include_path])
