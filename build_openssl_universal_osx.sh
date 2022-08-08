@@ -1,7 +1,12 @@
 #!/bin/bash
 
 OPENSSL_VERSION="1.1.1i"
-MACOSX_DEPLOYMENT_TARGET="10.13"
+
+export MACOSX_DEPLOYMENT_TARGET=10.13
+export MIN_SUPPORTED_MACOSX_DEPLOYMENT_TARGET=10.13
+export LDFLAGS='-mmacosx-version-min=10.13'
+export CFLAGS='-stdlib=libc++ -mmacosx-version-min=10.13'
+export CXXFLAGS='-stdlib=libc++ -mmacosx-version-min=10.13'
 
 curl -OL http://www.openssl.org/source/openssl-$OPENSSL_VERSION.tar.gz
 tar -xzvf openssl-$OPENSSL_VERSION.tar.gz
