@@ -1,10 +1,12 @@
 [![C/C++ CI](https://github.com/godotengine/godot-git-plugin/actions/workflows/build.yml/badge.svg)](https://github.com/godotengine/godot-git-plugin/actions/workflows/build.yml)
 
-# GDNative Based Git Plugin for Godot Version Control Editor Plugin
+<img src="/icon.png" width="25%" />
 
-Git implementation of the Godot Engine VCS interface in Godot. We use [libgit2](https://libgit2.org) as our backend to simulate Git in code.
+# Godot Git Plugin
 
-> Planned for the upcoming version of Godot. Look for other branches for support in other Godot releases.
+Git implementation of the Godot Engine VCS interface using GDNative in Godot. We use [libgit2](https://libgit2.org) as our backend to simulate Git in code.
+
+> Supported in Godot 3.5.x. Look for other branches for support in other Godot releases.
 
 ## Installation Instructions
 
